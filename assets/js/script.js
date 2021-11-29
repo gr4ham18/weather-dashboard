@@ -79,3 +79,58 @@ $(document).ready(function () {
         getUVIndex(response.coord.lat, response.coord.lon);
       });
     }
+  
+    // 5 day forcast
+    function getForecast(cityValue) {
+      var queryURL =
+        "https://api.openweathermap.org/data/2.5/forecast?q=" +
+        cityValue +
+        "&units=" +
+        units +
+        "&appid=" +
+        apikey;
+  
+      $.ajax({
+        url: queryURL,
+        type: "GET",
+        dataType: "json",
+      }).then(function (response) {
+        $("#forecast")
+          .html('<h4 class="mt-3">5-Day Forecast:</h4>')
+          .append('<div class="row">');
+  
+        // loop over all forecasts
+        for (var i = 0; i < response.list.length; i++) {
+          if (response.list[i].dt_txt.indexOf("15:00:00") !== -1) {
+            var col = $("<div>").addClass("col-md-2");
+            var card = $("<div>").addClass("card bg-primary text-white");
+            var body = $("<div>").addClass("card-body p-2");
+  
+            tempDate = new Date(
+              response.list[i].dt_txt.replace(/-/g, "/")
+            ).toLocaleDateString();
+  
+            var title = $("<h5>").addClass("card-title").text(tempDate);
+  
+            var img = $("<img>").attr(
+              "src",
+              "https://openweathermap.org/img/w/" +
+                response.list[i].weather[0].icon +
+                ".png"
+            );
+  
+            var p1 = $("<p>")
+              .addClass("card-text")
+              .text("Temp: " + response.list[i].main.temp_max + " °F");
+            var p2 = $("<p>")
+              .addClass("card-text")
+              .text("Humidity: " + response.list[i].main.humidity + "%");
+  
+            // merge together and put on page
+            col.append(card.append(body.append(title, img, p1, p2)));
+            $("#forecast .row").append(col);
+          }
+        }
+      });
+    }
+  
