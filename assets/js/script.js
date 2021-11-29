@@ -67,4 +67,3 @@ $(document).ready(function () {
           "src",
           "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
         );
-  
