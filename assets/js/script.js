@@ -11,7 +11,7 @@ $(document).ready(function () {
       weatherForcast(cityValue);
     });
   
-    // Set JQuery
+    // Set JQuery 
     $("#history-list").on("click", "li", function () {
       var historyValue = $(this).text();
       weatherForcast(historyValue);
@@ -47,3 +47,24 @@ $(document).ready(function () {
         }
   
         $("#today").empty();
+  
+        // create html content for weather now
+        var title = $("<h3>")
+          .addClass("card-title")
+          .text(response.name + " (" + new Date().toLocaleDateString() + ")");
+        var card = $("<div>").addClass("card");
+        var wind = $("<p>")
+          .addClass("card-text")
+          .text("Wind Speed: " + response.wind.speed + " MPH");
+        var humid = $("<p>")
+          .addClass("card-text")
+          .text("Humidity: " + response.main.humidity + "%");
+        var temp = $("<p>")
+          .addClass("card-text")
+          .text("Temperature: " + response.main.temp + " °F");
+        var cardBody = $("<div>").addClass("card-body");
+        var img = $("<img>").attr(
+          "src",
+          "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
+        );
+  
