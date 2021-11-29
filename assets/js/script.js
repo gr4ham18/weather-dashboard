@@ -67,3 +67,15 @@ $(document).ready(function () {
           "src",
           "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
         );
+  
+        // add to page
+        title.append(img);
+        cardBody.append(title, temp, humid, wind);
+        card.append(cardBody);
+        $("#today").append(card);
+  
+        // call other api
+        getForecast(cityValue);
+        getUVIndex(response.coord.lat, response.coord.lon);
+      });
+    }
