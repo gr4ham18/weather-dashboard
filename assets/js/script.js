@@ -133,4 +133,30 @@ $(document).ready(function () {
         }
       });
     }
-  
+  //lat and long for more acurate location
+  function getUVIndex(latitude, longitude) {
+    var queryURL =
+      "https://api.openweathermap.org/data/2.5/uvi?appid=" +
+      apikey +
+      "&lat=" +
+      latitude +
+      "&lon=" +
+      longitude;
+
+    $.ajax({
+      url: queryURL,
+      type: "GET",
+      dataType: "json",
+    }).then(function (response) {
+      var uv = $("<p>").text("UV Index: ");
+      var btn = $("<span>").addClass("btn btn-sm").text(response.value);
+      if (response.value < 3) {
+        btn.addClass("btn-success");
+      } else if (response.value < 7) {
+        btn.addClass("btn-warning");
+      } else {
+        btn.addClass("btn-danger");
+      }
+      $("#today .card-body").append(uv.append(btn));
+    });
+  }
