@@ -1,30 +1,49 @@
-# weather-dashboard
-
-### URL :
-https://gr4ham18.github.io/weather-dashboard/
-
-## Purpose
-Weather Forecast App
-
-## User Story
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
-
-## Acceptance Criteria
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
 
 
+<h1 align="center"> Weather- Dashboard </h1>
+  
+![badge](https://img.shields.io/badge/license-none-brightgreen)<br />
+
+## Description
+ Weather Forecast App
+
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+## Installation
+Not required
+
+## Usage
+-  Open link https://gr4ham18.github.io/weather-dashboard/
+ - Input Desired location
+ - see forecast for next 5 days
+
+
+## License
+![badge](https://img.shields.io/badge/license-none-brightgreen)
+<br />
+This application is covered by the none license. 
+
+## Contributing
+ gr4ham18
+
+
+
+## Questions
+ reporte issues at my github<br />
+<br />
+Find me on GitHub: [gr4ham18](https://github.com/gr4ham18)<br />
+<br />
+ Email me with any questions: Gr4ham18@gmail.com<br /><br />
+
+
+    
 ## Usage
 - MOBILE AND DESKTOP COMPATIBLE
 - STORE ON THE LOCAL REPOSITORY
